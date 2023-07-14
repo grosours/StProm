@@ -36,3 +36,27 @@ PromDescTest >> testFullyQualifiedName [
 	cases keysAndValuesDo: [ :k :v |
 		self assert: k fullyQualifiedName equals: v ]
 ]
+
+{ #category : #tests }
+PromDescTest >> testName [
+
+	| desc |
+	desc := PromDesc new name: 'aString'.
+	self assert: desc name equals: 'aString'
+]
+
+{ #category : #tests }
+PromDescTest >> testNamespace [
+
+	| desc |
+	desc := PromDesc new namespace: 'aString'.
+	self assert: desc namespace equals: 'aString'
+]
+
+{ #category : #tests }
+PromDescTest >> testSubsystem [
+
+	| desc |
+	desc := PromDesc new subsystem: 'aString'.
+	self assert: desc subsystem equals: 'aString'
+]
