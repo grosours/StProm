@@ -1,0 +1,7 @@
+Pharo*.changes
+Pharo*.image
+Pharo*.sources
+pharo
+pharo-ui
+pharo-vm/
+pharo-local/
