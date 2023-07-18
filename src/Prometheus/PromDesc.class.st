@@ -23,6 +23,16 @@ PromDesc class >> isValidComponent: aComponent [
 	^ aComponent isNotNil and: [ aComponent isNotEmpty ]
 ]
 
+{ #category : #validation }
+PromDesc class >> isValidMetricName: aName [
+
+	aName isEmpty ifTrue: [ ^ false ].
+	aName doWithIndex: [ :c :i |
+		((c isLetter or: [ c = $_ or: [ c = $: ]]) or:
+			(c isDigit and: [ i > 1 ])) ifFalse: [  ^ false ] ].
+	^ true
+]
+
 { #category : #internal }
 PromDesc >> fullyQualifiedName [
 

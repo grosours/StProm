@@ -38,6 +38,25 @@ PromDescTest >> testFullyQualifiedName [
 ]
 
 { #category : #tests }
+PromDescTest >> testIsValidMetricName [
+
+	| cases |
+	cases := Dictionary new
+		         at: 'Avalid_23name' put: true;
+		         at: '_Avalid_23name' put: true;
+		         at: '1valid_23name' put: false;
+		         at: 'avalid_23name' put: true;
+		         at: 'Ava:lid_23name' put: true;
+		         at: 'a lid_23name' put: false;
+		         at: ':leading_colon' put: true;
+		         at: 'colon:in:the:middle' put: true;
+		         at: '' put: false;
+		         yourself.
+	cases keysAndValuesDo: [ :name :isValid |
+		self assert: (PromDesc isValidMetricName: name) equals: isValid ]
+]
+
+{ #category : #tests }
 PromDescTest >> testName [
 
 	| desc |
